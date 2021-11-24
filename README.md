@@ -2,24 +2,37 @@
 ---
 ## Domain Proyek
 ---
-Menganalisa perilaku customer pengguna kartu credit dengan menggunakan KMeans clustering untuk mengclusterisasi customer sehingga didapatkan kelompok untuk menentukan treatmen yang cocok pada tiap kelompok cluster.
-* customer memiliki perilaku yang berpola sehingga dapat dikelompokan berdasarkan customer yang memiliki pola perilaku yang sama.
+Segmentasi merupakan bagian integral dari pengembangan tujuan dan strategi pemasaran, di mana mendefinisikan tujuan tersebut umumnya akan mencakup:
+(a) analisis tentang bagaimana produk harus dijual atau dikembangkan, berdasarkan analisis segmen pelanggan saat ini
+(b) identifikasi segmen baru sebagai target produk yang sudah ada atau pengembangan produk baru.
+Segmentasi sangat penting karena perusahaan memiliki sumber daya yang terbatas, dan harus fokus pada cara terbaik untuk mengidentifikasi dan melayani pelanggannya.
+Segmentasi yang efektif memungkinkan perusahaan untuk menentukan kelompok pelanggan mana yang harus mereka layani dan bagaimana memposisikan produk dan layanan mereka dengan baik untuk setiap kelompok.
+
 * Rujukkan referensi yang digunakan untuk membantu penulis dalam memecahkan permasalahan https://medium.com/analytics-vidhya/credit-card-customers-segmentation-bc3c5c87ddc.
 ---
 # Business Understanding
 ---
-Customer Card Segmentasi adalah proses mengelompokkan pelanggan pengguna jasa kartu credit berdasarkan karakteristik umum. Kelompok pelanggan ini bermanfaat dalam penentuan treatment, dalam mengidentifikasi pelanggan yang berpotensi menguntungkan, dan dalam mengembangkan loyalitas pelanggan.
+Pengembangan segmentasi pelanggan untuk menentukan strategi pemasaran. Sampel Dataset merangkum perilaku penggunaan sekitar 9000 pemegang kartu kredit aktif selama 6 bulan terakhir. File berada pada level pelanggan dengan 18 variabel perilaku.
+
 ## Problem Statements
-Pada Project ini kami akan membedakan pelanggan menjadi beberapa kelompok untuk menentukan perlakuan yang tepat bagi kelompok pelanggan tersebut sehingga dapat meningkatkan rasa kepuasan pelanggan dan kepercayaan pelanggan terhadap perusahaan.
+Pada Project ini akan membagi pelanggan menjadi beberapa kelompok untuk menentukan perlakuan yang tepat bagi kelompok pelanggan tersebut sehingga dapat meningkatkan rasa kepuasan pelanggan dan kepercayaan pelanggan terhadap perusahaan.
 
 ## Goals
-Membentuk 3 cluster customer pengguna kartu kredit.
+1.Membuat model estimasi segmentasi pelanggan kartu kredit untuk membantu perusahaan dalam menentukan strategi pemasaran.
+2.Sampel Dataset merangkum perilaku penggunaan sekitar 9000 pemegang kartu kredit aktif selama 6 bulan terakhir.
+3.File berada pada level pelanggan dengan 18 variabel perilaku.
+4.Menggunakan algoritma K-Means dengan nilai K ditentukan oleh nilai siluet.
+5.Menggunakan PCA untuk pengurangan dimensi dan visualisasi yang lebih baik.
 ### Solution
-Menggunakan algoritma KMeans clustering dan mengevaluasi model menggunakan elbow method dan shiloutte, dan mendapatkan cluster terbaik yaitu 3 cluster berbeda.
+* Segmentasi pelanggan kartu kredit menggunakan algoritma K-Means.
+K-means adalah algoritma pembelajaran unsupervised (clustering). K-means bekerja dengan mengelompokkan beberapa titik data menjadi satu (clustering) dengan cara yang tidak diawasi. Algoritma mengelompokkan pengamatan dengan nilai atribut yang serupa bersama-sama dengan mengukur jarak Euclidian antar titik.
+![image](https://user-images.githubusercontent.com/88529383/143204184-0687373a-e73c-445d-b08a-647ed8ac119d.png)
+
 
 # Data Understanding
 ---
 Masalah yang dijelaskan dalam kumpulan data ini mengharuskan dilakukan ekstrak segmen pelanggan tergantung pada pola perilaku mereka yang disediakan dalam kumpulan data, untuk memfokuskan strategi pemasaran perusahaan pada segmen tertentu.
+sumber data set :https://www.kaggle.com/arjunbhasin2013/ccdata
 ### Variabel-variabel pada dataset adalah sebagai berikut :
 * **CUST_ID** : Identification of Credit Card holder (Categorical). <br>
 * **BALANCE** : Balance amount left in their account to make purchases. <br>
@@ -65,39 +78,18 @@ Masalah yang dijelaskan dalam kumpulan data ini mengharuskan dilakukan ekstrak s
 1. analisa customer yang loyal
 ![image](https://user-images.githubusercontent.com/88529383/142851277-792c9059-a826-490f-ab2c-76ac9639d89c.png)
 
-Dari visualisasi, customer didominasi oleh tenure 12 tahun sehingga mengindikasikan bahwa customer puas dengan pelayanan dan customer loyal.
+Dari visualisasi, customer didominasi oleh tenure 12 bulan sehingga mengindikasikan bahwa customer puas dengan pelayanan dan customer loyal.
 2. Anlisa Customer Menggunakan Bar  dan box plot untuk melihat pola hubungan tiap variabel dengan variabel Tenor
 ![image](https://user-images.githubusercontent.com/88529383/142851500-d3cdc238-bd4d-494c-88f3-e4063810d675.png)
 
 ![image](https://user-images.githubusercontent.com/88529383/142851557-92aa67f5-94d0-43da-afae-99d48b4e8037.png)
 
-```PCA
-# Data Scaling
-scaler = StandardScaler()
-#melakukan proses scalling untuk menghilangkan gap antara kolom, dan karena ada ketimpangan pada kolom Tenor maka proses reduksi pca tidak akan memasukkan kolom Tenor
-cluster_new[['Saldo','Pembelian', 'Pembelian_Satu_Kali',
-       'Pembelian_Angsuran', 'Uang_Dibayar_Dimuka','Transaksi_Uang_Dibayar_Dimuka',
-       'Transaksi_Pembelian', 'Batas_Kredit', 'Pembayaran',
-       'Pembayaran_Minimal']] = scaler.fit_transform(cluster_new[['Saldo','Pembelian', 'Pembelian_Satu_Kali',
-       'Pembelian_Angsuran', 'Uang_Dibayar_Dimuka','Transaksi_Uang_Dibayar_Dimuka',
-       'Transaksi_Pembelian', 'Batas_Kredit', 'Pembayaran',
-       'Pembayaran_Minimal']])
-       
-#membunag kolom tenor
-cluster_new.drop('Tenor',axis=1,inplace=True)
+3. PRINCIPAL COMPONENT ANALYSIS (PCA)
+Dari dataset memiliki banyak kolom dan tidak semua kolom akan berkontribusi untuk membuat model cluster yang baik, sehingga dilakukan pengurangan dimensi pada dataset dengan menggunakan PRINCIPAL COMPONENT ANALYSIS (PCA).
+![image](https://user-images.githubusercontent.com/88529383/143218218-e21e7644-a539-4ac9-adf7-824cd675cfe1.png)
 
-#menentukan pca comonent
-pca = PCA(n_components=2)
-pca.fit(cluster_new)
-pca_transform = pca.transform(cluster_new)
-pca_transform
+Principal Component Analysis, atau PCA, adalah metode pengurangan dimensi yang sering digunakan untuk mengurangi dimensi kumpulan data besar, dengan mengubah kumpulan besar variabel menjadi lebih kecil yang masih berisi sebagian besar informasi dalam kumpulan besar. Mengurangi jumlah variabel dari kumpulan data secara alami mengorbankan akurasi, tetapi trik dalam pengurangan dimensi adalah menukar sedikit akurasi untuk kesederhanaan. Karena kumpulan data yang lebih kecil lebih mudah untuk dijelajahi dan divisualisasikan serta membuat analisis data menjadi lebih mudah dan lebih cepat untuk algoritme pembelajaran mesin tanpa variabel asing untuk diproses.
 
-#menggabungkan hasil PCA
-cluster_pca = pd.DataFrame(data=pca_transform,columns=['pca1','pca2'])
-
-# check the explained variance
-print('explained variance:',pca.explained_variance_ratio_)
-```
 
 # Model
 ---
