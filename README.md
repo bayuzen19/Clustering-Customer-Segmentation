@@ -23,11 +23,17 @@ Pada Project ini akan membagi pelanggan menjadi beberapa kelompok untuk menentuk
 3.File berada pada level pelanggan dengan 18 variabel perilaku.
 4.Menggunakan algoritma K-Means dengan nilai K ditentukan oleh nilai siluet.
 5.Menggunakan PCA untuk pengurangan dimensi dan visualisasi yang lebih baik.
+
 ### Solution
 * Segmentasi pelanggan kartu kredit menggunakan algoritma K-Means.
 K-means adalah algoritma pembelajaran unsupervised (clustering). K-means bekerja dengan mengelompokkan beberapa titik data menjadi satu (clustering) dengan cara yang tidak diawasi. Algoritma mengelompokkan pengamatan dengan nilai atribut yang serupa bersama-sama dengan mengukur jarak Euclidian antar titik.
 ![image](https://user-images.githubusercontent.com/88529383/143204184-0687373a-e73c-445d-b08a-647ed8ac119d.png)
-
+**Tahapan K-Means Clustering**: <br>
+1.Memilih jumlah cluster awal (K) yang ingin dibuat. <br>
+2.Memilih titik secara random sebanyak K buah, di mana titik ini akan menjadi pusat (centroid) dari masing-masing kelompok (clusters).<br>
+3.Dari dataset yang kita miliki, buat dataset yang terdekat dengan titik centroid sebagai bagian dari cluster tersebut. Sehingga secara total akan terbentuk clusters sebanyak K  buah.<br>
+4.Lakukan kalkulasi, dan tempatkan pusat centroid yang baru untuk setiap cluster-nya. Langkah ini bisa disebut juga dengan istilah penyempurnaan centroid.<br>
+5.Dari dataset yang kita miliki ambil titik centroid terdekat, sehingga dataset tadi menjadi bagian dari cluster tersebut. Jika masih ada data yang berubah kelompok (pindah cluster), kembali ke langkah 4. Jika tidak, maka cluster yang terbentuk sudah baik.<br>
 
 # Data Understanding
 ---
@@ -37,55 +43,66 @@ sumber data set :https://www.kaggle.com/arjunbhasin2013/ccdata
 * **CUST_ID** : Identification of Credit Card holder (Categorical). <br>
 * **BALANCE** : Balance amount left in their account to make purchases. <br>
 * **BALANCE_FREQUENCY** : How frequently the Balance is updated, score between 0 and 1 (1 = frequently updated, 0 = not frequently updated). <br>
-
 * **PURCHASES** : Amount of purchases made from account. <br>
-
 * **ONEOFF_PURCHASES** : Maximum purchase amount done in one-go. <br>
-
 * **INSTALLMENTS_PURCHASES** : Amount of purchase done in installment. <br>
-
 * **CASH_ADVANCE** : Cash in advance given by the user. <br>
-
 * **PURCHASES_FREQUENCY** : How frequently the Purchases are being made, score between 0 and 1 (1 = frequently purchased, 0 = not frequently purchased). <br>
-
 * **ONEOFF_PURCHASES_FREQUENCY** : How frequently Purchases are happening in one-go (1 = frequently purchased, 0 = not frequently purchased). <br>
-
 * **PURCHASES_INSTALLMENTS_FREQUENCY** : How frequently purchases in installments are being done (1 = frequently done, 0 = not frequently done). <br>
-
 * **CASH_ADVANCE_FREQUENCY** : How frequently the cash in advance being paid. <br>
-
 * **CASH_ADVANCE_TRX** : Number of Transactions made with "Cash in Advanced". <br>
-
 * **PURCHASES_TRX** : Numbe of purchase transactions made. <br>
-
 * **CREDIT_LIMIT** : Limit of Credit Card for user. <br>
-
 * **PAYMENTS** : Amount of Payment done by user. <br>
-
 * **MINIMUM_PAYMENTS** : Minimum amount of payments made by user. <br>
-
 * **PRC_FULL_PAYMENT** : Percent of full payment paid by user. <br>
-
 * **TENURE** : Tenure of credit card service for user. <br>
 
-# Data Preparation
----
+**Data Overview**
+![image](https://user-images.githubusercontent.com/88529383/143534632-6cc6e749-db7c-4bd6-a2e1-3defa3dd8e61.png)
+Data terdiri dari 8950 baris dan 18 kolom. Berikut ringkasan datanya.
+
+![image](https://user-images.githubusercontent.com/88529383/143534718-380cea1a-7f23-4be2-9c98-8719a36c8875.png)
+Ada banyak outlier (lihat nilai maksimalnya), tapi saya tidak menghapusnya karena mungkin berisi informasi penting, jadi saya memperlakukan outlier sebagai nilai ekstrim.
+
+memeriksa type data pada dataset.
+![image](https://user-images.githubusercontent.com/88529383/143535069-e2118caf-b123-4393-a43f-cc4c8474f97f.png)
+dari informasi terlihat hanya kolom Cust_ID yang object dan jika diperika pada kolom tersebut berisikan nilai unik yang banyak sehingga bisa dipastikan bahwa kolom tersebut tidak akan memberikan informasi, sehingga dalam proses selanjutnya kolom Cust_ID akan didrop.
+
+memriksa missing value pada data.
+![image](https://user-images.githubusercontent.com/88529383/143535203-17985c33-5a13-48e6-b3c0-7869e521ccba.png)
+kolom pembayaran minimal memiliki missing value sebesar 3.5% dan kolom batas kredit memiliki missing value sebesar 0.01%, karena missing value tergolong sangat kecil maka akan dilakukan penghapusan missing value.
+
+## Eksploration Data Analysis
+Eksploration data analysis dilakukan untuk lebih memahami isi data, seperti informasi type tiap kolom, persebaran data dan ringkasan statistik.
+
 * Melakukan pemeriksaan informasi type data pada tiap variable untuk memastikan apakah type data telah sesuai dengan menggunakan fungsi ```info()```.
 * Melakukan pendekatan Statistika Descriptive untuk mengenali data berdasarkan statistik menggunakan fungsi ```describe()```
 * Memeriksa data yang terduplikasi menggunakan fungsi ```duplicate()``` untuk menghindari terjadinya kesalahan pengumpulan informasi untuk di analisa lebih lanjut.
 * memeriksa missing value yang hilang pada tiap variable agar dataset dapat digunakan untuk pembuatan machine learning.
 * Melakukan Eksploration data analisis untuk menganalisa data, beberapa hasilnya sebagai berikut :
-1. analisa customer yang loyal
+1.Analisa customer yang loyal
 ![image](https://user-images.githubusercontent.com/88529383/142851277-792c9059-a826-490f-ab2c-76ac9639d89c.png)
 
 Dari visualisasi, customer didominasi oleh tenure 12 bulan sehingga mengindikasikan bahwa customer puas dengan pelayanan dan customer loyal.
-2. Anlisa Customer Menggunakan Bar  dan box plot untuk melihat pola hubungan tiap variabel dengan variabel Tenor
+2.Anlisa Customer Menggunakan Bar  dan box plot untuk melihat pola hubungan tiap variabel dengan variabel Tenor
 ![image](https://user-images.githubusercontent.com/88529383/142851500-d3cdc238-bd4d-494c-88f3-e4063810d675.png)
 
 ![image](https://user-images.githubusercontent.com/88529383/142851557-92aa67f5-94d0-43da-afae-99d48b4e8037.png)
 
-3. PRINCIPAL COMPONENT ANALYSIS (PCA)
-Dari dataset memiliki banyak kolom dan tidak semua kolom akan berkontribusi untuk membuat model cluster yang baik, sehingga dilakukan pengurangan dimensi pada dataset dengan menggunakan PRINCIPAL COMPONENT ANALYSIS (PCA).
+3.Matriks Korelasi
+matriks korelasi berguna untuk melihat fitur-fitur yang memiliki korelasi satu sama lain sehingga mempermudah untuk memilih fitur-fitur penting yang akan digunakan untuk membangun model. Untuk membuat matriks korelasi dapat menggunakan heat map atau peta panas ```sns.heatmap()``` yang merupakan fungsi dari seaborn.
+
+![image](https://user-images.githubusercontent.com/88529383/143533752-8d877323-d225-406c-b92f-31f7cba9d40a.png)
+Dari grafik heatmap terlihat ada banya fitur yang saling berkolerasi kuat, cukup sulit untuk membuat model dengan melakukan pemeilihan fitur secara manual, sehingga proses dalam pembuat model, pereduksian fitur akan dilakukan dengan bantuan PCA
+# Data Preparation
+---
+1. Handle colom categoric
+menghandel colom categoric dilakukan dengan cara mengubah type categoric menjadi numerik, hal ini dilakukan karena algoritma machine learning hanya mengenali data berupa numerik dan juga untuk melakukan dimensional reduction atau pengurangan dimensi dataset dengan cara mengurangi fitur-fitur pada dataset tetapi tidak kehilangan banyak informasi apabila terdapat banyak kolom pada dataset dan fitur fiturnya memiliki korelasi satu sama lain, beberapa cara untuk menghadle data dengan tipe categoric adalah dengan menggunakan OneHotEncoder dan LabelEncoder.
+
+2. PRINCIPAL COMPONENT ANALYSIS (PCA)
+Dari dataset memiliki banyak fitur, beberapa fitur saling berkolerasi dan beberapa dan tidak semua fitur akan berkontribusi untuk membuat model cluster yang baik, sehingga dilakukan pengurangan dimensi pada dataset dengan menggunakan PRINCIPAL COMPONENT ANALYSIS (PCA).
 ![image](https://user-images.githubusercontent.com/88529383/143218218-e21e7644-a539-4ac9-adf7-824cd675cfe1.png)
 
 Principal Component Analysis, atau PCA, adalah metode pengurangan dimensi yang sering digunakan untuk mengurangi dimensi kumpulan data besar, dengan mengubah kumpulan besar variabel menjadi lebih kecil yang masih berisi sebagian besar informasi dalam kumpulan besar. Mengurangi jumlah variabel dari kumpulan data secara alami mengorbankan akurasi, tetapi trik dalam pengurangan dimensi adalah menukar sedikit akurasi untuk kesederhanaan. Karena kumpulan data yang lebih kecil lebih mudah untuk dijelajahi dan divisualisasikan serta membuat analisis data menjadi lebih mudah dan lebih cepat untuk algoritme pembelajaran mesin tanpa variabel asing untuk diproses.
