@@ -112,8 +112,8 @@ Dari visualisasi, customer didominasi oleh tenure 12 bulan sehingga mengindikasi
 ![image](https://user-images.githubusercontent.com/88529383/142851557-92aa67f5-94d0-43da-afae-99d48b4e8037.png)
 berdasarkan grafik bar plot beberapa informasi yang didapatkan adalah :
 1. kecenderungan peningkatan saldo terhadap waktu pemakaian jasa, hubungannya semakin lama customer maka saldo yang dimiliki samkin besar. <br>
-2. customer yang sudah 12 tahun menggunakan jasa bank, memiliki pembelian yang tinggi, dari grafik juga ditunjukkan secara umum semakin lama tenor customer, maka perilaku pembelian semakin meningkat. <br>
-3. terdapat kasus unik untuk hubungan frekuensi pembelian dengan lama tenor, dimana pada customer dengan tenor 6 tahun lebih sering melakukan pembelian, ketika tenor meningkat kecendrungan frekuensi pembelian menurun tetapi meningkat kembali secara signifikant pada saat customer memiliki tenor 12 tahun. <br>
+2. customer yang sudah 12 bulan menggunakan jasa bank, memiliki pembelian yang tinggi, dari grafik juga ditunjukkan secara umum semakin lama tenor customer, maka perilaku pembelian semakin meningkat. <br>
+3. terdapat kasus unik untuk hubungan frekuensi pembelian dengan lama tenor, dimana pada customer dengan tenor 6 bulan lebih sering melakukan pembelian, ketika tenor meningkat kecendrungan frekuensi pembelian menurun tetapi meningkat kembali secara signifikant pada saat customer memiliki tenor 12 bulan. <br>
 4. untuk frekuensi pembayaran dimuka, ketika mengalami penurunan ketikan tenor meningkat. <br>
 5. batas kredit meningkat ketika tenor meningkat, hal ini cukup masuk akal karena peningkatan saldo juga meningkat, sehingga kemungkinan customer akan meningkatkan jumlah limit dengan keperluan tertentu, pernyataan ini didukung dengan hubungan pembayaran dengan tenor yang meningkat seiring tenor meningkat.
 
