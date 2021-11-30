@@ -134,7 +134,7 @@ Clustering adalah salah satu teknik analisis data eksplorasi yang paling umum di
 * membuat model dari hasil pca untuk menentukan cluster dengan menggunakan algortima KMeans cluster. <br>
 * Menggunakan Elbow method untuk melihat cluster terbaik
 ![image](https://user-images.githubusercontent.com/88529383/142851614-84532357-fe30-4141-bbfa-1048e9cbf78f.png)
-* dari grafk menunjukkan K cluster K=3 atau K=4. <br>
+* dari grafik menunjukkan K cluster K=3 atau K=4. <br>
 
 # Evaluation
 ---
@@ -157,44 +157,44 @@ For n_clusters = 6, silhouette score is 0.4869587047832269 <br>
 For n_clusters = 7, silhouette score is 0.4483910943173569 <br>
 For n_clusters = 8, silhouette score is 0.4374152749679159 <br>
 For n_clusters = 9, silhouette score is 0.3971416478419992 <br>
-Di atas adalah hasil dari evaluasi berdasarkan silhoutte score, dari hari yang ditunjukkan cluster terbaik pada jumlah cluster 2, tetapi tidak masuk akal jika customer segmentation sebanyak 2 cluster, sehingga penulis menetapkan jumlah cluster sebanyak 3 karena dianggap cukup masuk akal.
+Di atas adalah hasil dari evaluasi berdasarkan silhoutte score, dari hasil yang ditunjukkan cluster terbaik pada jumlah cluster 2, tetapi tidak masuk akal jika customer segmentation sebanyak 2 cluster, sehingga penulis menetapkan jumlah cluster sebanyak 3 karena dianggap cukup masuk akal.<br>
 
 # EDA Tiap Cluster
 ---
 ![image](https://user-images.githubusercontent.com/88529383/142851661-404d3e1c-9bb4-45fe-89fa-0e63d5d3af76.png)
 dari grafik boxplot dan statistik desricptive rata rata ```clusters.groupby('cluster').mean()``` didapatkan kesimpulan:
-Cluster 0
-Saldo : Medium 
-Frekuensi Saldo : high
-Pembelian : High
-Frekuensi Pembelian : Medium
-Pembayaran Minimal : Medium
-Credit Limit : medium
+Cluster 0 <br>
+Saldo : Medium <br>
+Frekuensi Saldo : high <br>
+Pembelian : High <br>
+Frekuensi Pembelian : Medium <br>
+Pembayaran Minimal : Medium <br>
+Credit Limit : medium <br>
 
-Cluster 1
-Saldo : low
-Frekuensi Saldo : high
-Pembelian : low
-Frekuensi Pembelian : low
-Pembayaran Minimal : low
-Credit Limit : low
+Cluster 1 <br>
+Saldo : low <br>
+Frekuensi Saldo : high <br>
+Pembelian : low <br>
+Frekuensi Pembelian : low <br>
+Pembayaran Minimal : low <br>
+Credit Limit : low <br>
 
-Cluster 2
-Saldo : High 
-Frekuensi Saldo : high
-Pembelian : High
-Frekuensi Pembelian : High
-Pembayaran Minimal : High
-Credit Limit : High
+Cluster 2 <br>
+Saldo : High <br>
+Frekuensi Saldo : high <br>
+Pembelian : High <br> 
+Frekuensi Pembelian : High <br>
+Pembayaran Minimal : High <br>
+Credit Limit : High <br>
 
 
 ## KESIMPULAN
 ---
 untuk cluster 1, rekomendasikan **silver credit card** karena ini adalah kartu yang paling banyak dimiliki. Secara umum, pemegang kartu kredit baru akan menerima kartu perak dan mereka dapat meningkatkannya nanti. Kartu silver memiliki limit kredit paling rendah yaitu sekitar Rp 4 juta hingga Rp 7 juta. Pemegang kartu harus memiliki gaji bulanan minimal Rp 3 juta. Kelebihan dari kartu ini adalah limit yang tidak terlalu tinggi. <br>
 
-untuk cluster 0, rekomendasikan **gold credit card**. Pemegang kartu harus memiliki penghasilan rutin bulanan sekitar Rp 5 juta hingga Rp 10 juta. Limit kredit berkisar antara Rp 10 juta hingga Rp 40 juta, tergantung bank penerbit kartu kredit. Kelebihan dari jenis kartu ini adalah limit yang cukup besar. Jadi, ini memungkinkan Anda untuk membeli/memiliki barang-barang mahal lebih cepat. Anda bisa menggunakannya untuk mencicil barang-barang berbujet besar seperti sepeda motor atau smartphone. Namun, semakin tinggi batas kartu kredit, semakin tinggi biaya tahunan yang harus Anda bayar.
+untuk cluster 0, rekomendasikan **gold credit card**. Pemegang kartu harus memiliki penghasilan rutin bulanan sekitar Rp 5 juta hingga Rp 10 juta. Limit kredit berkisar antara Rp 10 juta hingga Rp 40 juta, tergantung bank penerbit kartu kredit. Kelebihan dari jenis kartu ini adalah limit yang cukup besar. Jadi, ini memungkinkan Anda untuk membeli/memiliki barang-barang mahal lebih cepat. Anda bisa menggunakannya untuk mencicil barang-barang berbujet besar seperti sepeda motor atau smartphone. Namun, semakin tinggi batas kartu kredit, semakin tinggi biaya tahunan yang harus Anda bayar.<br>
 
-untuk cluster 2, kartu **platinum credit card** dengan level tertinggi. Kartu kredit Platinum hanya dimiliki oleh segelintir orang karena tidak mudah untuk mendapatkan kartu karena prosedur yang ketat. Kartu kredit platinum memiliki limit tinggi mulai dari Rp 40 juta hingga Rp 1 miliar. Pemegang kartu harus memiliki penghasilan minimal Rp 180 juta per tahun dan memiliki riwayat kredit yang baik.
+untuk cluster 2, kartu **platinum credit card** dengan level tertinggi. Kartu kredit Platinum hanya dimiliki oleh segelintir orang karena tidak mudah untuk mendapatkan kartu karena prosedur yang ketat. Kartu kredit platinum memiliki limit tinggi mulai dari Rp 40 juta hingga Rp 1 miliar. Pemegang kartu harus memiliki penghasilan minimal Rp 180 juta per tahun dan memiliki riwayat kredit yang baik.<br>
 
 
 
