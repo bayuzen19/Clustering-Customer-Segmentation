@@ -9,6 +9,7 @@ Meskipun sedikit yang telah dilakukan sejauh ini untuk memahami perilaku penggun
 <p align = "justify">Segmentasi merupakan bagian integral dari pengembangan tujuan dan strategi pemasaran, di mana mendefinisikan tujuan tersebut umumnya akan mencakup:<br>
 1. Analisis tentang bagaimana produk harus dijual atau dikembangkan, berdasarkan analisis segmen pelanggan saat ini.<br>
 2. Identifikasi segmen baru sebagai target produk yang sudah ada atau pengembangan produk baru.<br>
+    
 Segmentasi sangat penting karena perusahaan memiliki sumber daya yang terbatas, dan harus fokus pada cara terbaik untuk mengidentifikasi dan melayani pelanggannya.
 Segmentasi yang efektif memungkinkan perusahaan untuk menentukan kelompok pelanggan mana yang harus mereka layani dan bagaimana memposisikan produk dan layanan mereka dengan baik untuk setiap kelompok.
     
