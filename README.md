@@ -2,11 +2,11 @@
 ---
 ## Domain Proyek
 ---
-Segmentasi merupakan bagian integral dari pengembangan tujuan dan strategi pemasaran, di mana mendefinisikan tujuan tersebut umumnya akan mencakup:
-(a) analisis tentang bagaimana produk harus dijual atau dikembangkan, berdasarkan analisis segmen pelanggan saat ini
+<p align = "justify">Segmentasi merupakan bagian integral dari pengembangan tujuan dan strategi pemasaran, di mana mendefinisikan tujuan tersebut umumnya akan mencakup:<br>
+(a) analisis tentang bagaimana produk harus dijual atau dikembangkan, berdasarkan analisis segmen pelanggan saat ini.<br>
 (b) identifikasi segmen baru sebagai target produk yang sudah ada atau pengembangan produk baru.
 Segmentasi sangat penting karena perusahaan memiliki sumber daya yang terbatas, dan harus fokus pada cara terbaik untuk mengidentifikasi dan melayani pelanggannya.
-Segmentasi yang efektif memungkinkan perusahaan untuk menentukan kelompok pelanggan mana yang harus mereka layani dan bagaimana memposisikan produk dan layanan mereka dengan baik untuk setiap kelompok.
+Segmentasi yang efektif memungkinkan perusahaan untuk menentukan kelompok pelanggan mana yang harus mereka layani dan bagaimana memposisikan produk dan layanan mereka dengan baik untuk setiap kelompok.</p>
 
 * Rujukkan referensi yang digunakan untuk membantu penulis dalam memecahkan permasalahan https://medium.com/analytics-vidhya/credit-card-customers-segmentation-bc3c5c87ddc.
 ---
@@ -22,8 +22,8 @@ Membuat model yang dapat menentukan banyak kluster secara tepat dari customer se
 
 ### Solution
 * Segmentasi pelanggan kartu kredit menggunakan algoritma K-Means.
-K-means adalah algoritma pembelajaran unsupervised (clustering). K-means bekerja dengan mengelompokkan beberapa titik data menjadi satu (clustering) dengan cara yang tidak diawasi. Algoritma mengelompokkan pengamatan dengan nilai atribut yang serupa bersama-sama dengan mengukur jarak Euclidian antar titik. Algoritma K-means juga bekerja secara iteratif yang mencoba untuk mempartisi dataset menjadi K subkelompok (cluster) berbeda yang tidak tumpang tindih yang telah ditentukan sebelumnya di mana setiap titik data hanya dimiliki oleh satu kelompok. <br>
-![image](https://user-images.githubusercontent.com/88529383/143204184-0687373a-e73c-445d-b08a-647ed8ac119d.png)
+<p align = "justify">K-means adalah algoritma pembelajaran unsupervised (clustering). K-means bekerja dengan mengelompokkan beberapa titik data menjadi satu (clustering) dengan cara yang tidak diawasi. Algoritma mengelompokkan pengamatan dengan nilai atribut yang serupa bersama-sama dengan mengukur jarak Euclidian antar titik. Algoritma K-means juga bekerja secara iteratif yang mencoba untuk mempartisi dataset menjadi K subkelompok (cluster) berbeda yang tidak tumpang tindih yang telah ditentukan sebelumnya di mana setiap titik data hanya dimiliki oleh satu kelompok.</p>
+![image](https://user-images.githubusercontent.com/88529383/143980712-32824449-48e2-41ea-a4c0-8a27c5f7dd4c.png)
 
 **Tahapan K-Means Clustering**: <br>
 1.Memilih jumlah cluster awal (K) yang ingin dibuat. <br>
@@ -34,8 +34,8 @@ K-means adalah algoritma pembelajaran unsupervised (clustering). K-means bekerja
 
 # Data Understanding
 ---
-Masalah yang dijelaskan dalam kumpulan data ini mengharuskan dilakukan ekstrak segmen pelanggan tergantung pada pola perilaku mereka yang disediakan dalam kumpulan data, untuk memfokuskan strategi pemasaran perusahaan pada segmen tertentu.
-sumber data set :https://www.kaggle.com/arjunbhasin2013/ccdata
+Masalah yang dijelaskan dalam kumpulan data ini mengharuskan dilakukan ekstrak segmen pelanggan tergantung pada pola perilaku mereka yang disediakan dalam kumpulan data, untuk memfokuskan strategi pemasaran perusahaan pada segmen tertentu.<br>
+[Sumber Dataset](https://www.kaggle.com/arjunbhasin2013/ccdata)
 ### Variabel-variabel pada dataset adalah sebagai berikut :
 * **CUST_ID** : Identification of Credit Card holder (Categorical). <br>
 * **BALANCE** : Balance amount left in their account to make purchases. <br>
@@ -87,7 +87,7 @@ Eksploration data analysis dilakukan untuk lebih memahami isi data, seperti info
 * memeriksa missing value yang hilang pada tiap variable agar dataset dapat digunakan untuk pembuatan machine learning.
 * Melakukan Eksploration data analisis untuk menganalisa data, beberapa hasilnya sebagai berikut : <br>
 
-1.Memriksa Persebaran Data Menggunakan Histogram.
+1.Memeriksa Persebaran Data Menggunakan Histogram.
 
 ![image](https://user-images.githubusercontent.com/88529383/143579930-0a86091b-ec82-44b1-8fc6-6713226f1ff7.png)
 Dari hasil Visualisasi histogram didapatan beberapa informasi : <br>
@@ -102,7 +102,7 @@ Dari hasil Visualisasi histogram didapatan beberapa informasi : <br>
 ![image](https://user-images.githubusercontent.com/88529383/142851277-792c9059-a826-490f-ab2c-76ac9639d89c.png) <br>
 Dari visualisasi, customer didominasi oleh tenure 12 bulan sehingga mengindikasikan bahwa customer puas dengan pelayanan dan customer loyal.
 
-3.Anlisa Customer Menggunakan Bar  dan box plot untuk melihat pola hubungan tiap variabel dengan variabel Tenor.
+3.Anlisa Customer Menggunakan Bar dan box plot untuk melihat pola hubungan tiap variabel dengan variabel Tenor.
 
 ![image](https://user-images.githubusercontent.com/88529383/142851500-d3cdc238-bd4d-494c-88f3-e4063810d675.png)
 ![image](https://user-images.githubusercontent.com/88529383/142851557-92aa67f5-94d0-43da-afae-99d48b4e8037.png)
@@ -126,19 +126,20 @@ menghandel colom categoric dilakukan dengan cara mengubah type categoric menjadi
 
 2. PRINCIPAL COMPONENT ANALYSIS (PCA).<br>
 ![image](https://user-images.githubusercontent.com/88529383/143218218-e21e7644-a539-4ac9-adf7-824cd675cfe1.png)
-Dari dataset memiliki banyak fitur, beberapa fitur saling berkolerasi dan beberapa dan tidak semua fitur akan berkontribusi untuk membuat model cluster yang baik, sehingga dilakukan pengurangan dimensi pada dataset dengan menggunakan PRINCIPAL COMPONENT ANALYSIS (PCA). Principal Component Analysis, atau PCA, adalah metode pengurangan dimensi yang sering digunakan untuk mengurangi dimensi kumpulan data besar, dengan mengubah kumpulan besar variabel menjadi lebih kecil yang masih berisi sebagian besar informasi dalam kumpulan besar. Mengurangi jumlah variabel dari kumpulan data secara alami mengorbankan akurasi, tetapi trik dalam pengurangan dimensi adalah menukar sedikit akurasi untuk kesederhanaan. Karena kumpulan data yang lebih kecil lebih mudah untuk dijelajahi dan divisualisasikan serta membuat analisis data menjadi lebih mudah dan lebih cepat untuk algoritme pembelajaran mesin tanpa variabel asing untuk diproses.
+<p align = "justify">Dari dataset memiliki banyak fitur, beberapa fitur saling berkolerasi dan beberapa dan tidak semua fitur akan berkontribusi untuk membuat model cluster yang baik, sehingga dilakukan pengurangan dimensi pada dataset dengan menggunakan PRINCIPAL COMPONENT ANALYSIS (PCA). Principal Component Analysis, atau PCA, adalah metode pengurangan dimensi yang sering digunakan untuk mengurangi dimensi kumpulan data besar, dengan mengubah kumpulan besar variabel menjadi lebih kecil yang masih berisi sebagian besar informasi dalam kumpulan besar. Mengurangi jumlah variabel dari kumpulan data secara alami mengorbankan akurasi, tetapi trik dalam pengurangan dimensi adalah menukar sedikit akurasi untuk kesederhanaan. Karena kumpulan data yang lebih kecil lebih mudah untuk dijelajahi dan divisualisasikan serta membuat analisis data menjadi lebih mudah dan lebih cepat untuk algoritma pembelajaran mesin tanpa variabel asing untuk diproses.</p>
 
 # Model
 ---
-Clustering adalah salah satu teknik analisis data eksplorasi yang paling umum digunakan untuk mendapatkan intuisi tentang struktur data. Ini dapat didefinisikan sebagai tugas mengidentifikasi subkelompok dalam data sedemikian rupa sehingga titik-titik data dalam subkelompok yang sama (cluster) sangat mirip sedangkan titik-titik data dalam kelompok yang berbeda sangat berbeda. Proses clusterisasi dapat dilakukan dengan algoritma KMeans, K-means bekerja dengan mengelompokkan beberapa titik data menjadi satu (clustering) dengan cara yang tidak diawasi. Algoritma mengelompokkan pengamatan dengan nilai atribut yang serupa bersama-sama dengan mengukur jarak Euclidian antar titik
-* membuat model dari hasil pca untuk menentukan cluster dengan menggunakan algortima KMeans cluster. <br>
-* Menggunakan Elbow method untuk melihat cluster terbaik
-![image](https://user-images.githubusercontent.com/88529383/142851614-84532357-fe30-4141-bbfa-1048e9cbf78f.png)
-* dari grafik menunjukkan K cluster K=3 atau K=4. <br>
+Clustering adalah salah satu teknik analisis data eksplorasi yang paling umum digunakan untuk mendapatkan intuisi tentang struktur data. Ini dapat didefinisikan sebagai tugas mengidentifikasi subkelompok dalam data sedemikian rupa sehingga titik-titik data dalam subkelompok yang sama (cluster) sangat mirip sedangkan titik-titik data dalam kelompok yang berbeda sangat berbeda. Proses clusterisasi dapat dilakukan dengan algoritma KMeans, K-means bekerja dengan mengelompokkan beberapa titik data menjadi satu (clustering) dengan cara yang tidak diawasi. Algoritma mengelompokkan pengamatan dengan nilai atribut yang serupa bersama-sama dengan mengukur jarak Euclidian antar titik.
+* Membuat model dari hasil pca untuk menentukan cluster dengan menggunakan algortima KMeans cluster. <br>
+* Menggunakan Elbow method untuk melihat cluster terbaik.<br>
+![image](https://user-images.githubusercontent.com/88529383/143982528-ce311771-10f6-4a6e-9c58-0eec3698f03a.png)<br>
+* Dari grafik menunjukkan K cluster K=3 atau K=4. <br>
 
 # Evaluation
 ---
-Dari gambar yang ditampilkan oleh Elbow method cukup sulit untuk menentuk nilai K terbaik, sehingga perlu di lakukan evaluasi model menggunakan silhouette score untuk melihat score pada tiap cluster dan melakukan perbandingan dalam menentukan cluster yang masuk akal, sehingga dapat dilakukan analisa tahap lanjut untuk melihat pola pola pada tiap cluster. Namun, perlu diperhatikan bahwa hasil dari evaluasi bisa di ikuti ataupun tidak, tergantung dari masuk akalnya banyak cluster yang mungkin terbentuk.
+<p align ="justify">Dari gambar yang ditampilkan oleh Elbow method cukup sulit untuk menentuk nilai K terbaik, sehingga perlu di lakukan evaluasi model menggunakan silhouette score untuk melihat score pada tiap cluster dan melakukan perbandingan dalam menentukan cluster yang masuk akal, sehingga dapat dilakukan analisa tahap lanjut untuk melihat pola pola pada tiap cluster. Namun, perlu diperhatikan bahwa hasil dari evaluasi bisa di ikuti ataupun tidak, tergantung dari masuk akalnya banyak cluster yang mungkin terbentuk.</p>
+
 ```
 range_n_clusters = range(2,10)
 for n_clusters in range_n_clusters:
