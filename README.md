@@ -2,13 +2,17 @@
 ---
 ## Domain Proyek
 ---
+<p align="justify">Kartu kredit adalah salah satu alat yang banyak digunakan untuk membayar layanan dan makanan, dan terkadang digunakan untuk meminjam uang. Orang yang berbeda menggunakan kartu tersebut untuk melakukan pembelian harian, mingguan, bulanan, dan bahkan tahunan, informasi tentang apa yang dibeli seseorang dan kapan mereka membelinya adalah peluang bagus untuk dijelajahi oleh organisasi. Kartu kredit memiliki beberapa keunggulan dibandingkan pembayaran tunai dan kartu debit. Mereka dapat digunakan untuk membeli barang-barang yang mungkin tidak mampu dibeli orang lain, melakukan transaksi online, melakukan transaksi darurat ketika biaya tak terduga datang dan lebih nyaman dibandingkan dengan membawa uang tunai yang mengurangi peredaran uang palsu.
+Meskipun sedikit yang telah dilakukan sejauh ini untuk memahami perilaku pengguna kartu kredit, dengan melakukan pengelompokkan/segmentas berdasarkan perilaku transaksi mereka akan membantu menciptakan strategi pemasaran yang lebih disesuaikan untuk setiap segmen pelanggan dan meningkatkan penggunaan kartu kredit untuk beberapa alasan:<br>
+1. Kegiatan pemasaran yang disesuaikan akan meningkatkan tahun pelanggan. Kemajuan ini akan mengarah pada permintaan lebih lanjut dalam kepuasan sistem terkait kartu kredit pengguna kartu kredit.<br>
+2. Jumlah pemegang kartu kredit akan terus bertambah seiring pelanggan yang puas akan terus menggunakan kartu kredit mereka.
 <p align = "justify">Segmentasi merupakan bagian integral dari pengembangan tujuan dan strategi pemasaran, di mana mendefinisikan tujuan tersebut umumnya akan mencakup:<br>
-(a) analisis tentang bagaimana produk harus dijual atau dikembangkan, berdasarkan analisis segmen pelanggan saat ini.<br>
-(b) identifikasi segmen baru sebagai target produk yang sudah ada atau pengembangan produk baru.
+1. Analisis tentang bagaimana produk harus dijual atau dikembangkan, berdasarkan analisis segmen pelanggan saat ini.<br>
+2. Identifikasi segmen baru sebagai target produk yang sudah ada atau pengembangan produk baru.<br>
 Segmentasi sangat penting karena perusahaan memiliki sumber daya yang terbatas, dan harus fokus pada cara terbaik untuk mengidentifikasi dan melayani pelanggannya.
-Segmentasi yang efektif memungkinkan perusahaan untuk menentukan kelompok pelanggan mana yang harus mereka layani dan bagaimana memposisikan produk dan layanan mereka dengan baik untuk setiap kelompok.</p>
-
-* Rujukkan referensi yang digunakan untuk membantu penulis dalam memecahkan permasalahan https://medium.com/analytics-vidhya/credit-card-customers-segmentation-bc3c5c87ddc.
+Segmentasi yang efektif memungkinkan perusahaan untuk menentukan kelompok pelanggan mana yang harus mereka layani dan bagaimana memposisikan produk dan layanan mereka dengan baik untuk setiap kelompok.
+    
+* Rujukkan referensi yang digunakan untuk membantu penulis dalam memecahkan permasalahan [sumber](https://medium.com/analytics-vidhya/credit-card-customers-segmentation-bc3c5c87ddc)
 ---
 # Business Understanding
 ---
@@ -101,19 +105,19 @@ Dari hasil Visualisasi histogram didapatan beberapa informasi : <br>
 ![image](https://user-images.githubusercontent.com/88529383/142851277-792c9059-a826-490f-ab2c-76ac9639d89c.png) <br>
 Dari visualisasi, customer didominasi oleh tenure 12 bulan sehingga mengindikasikan bahwa customer puas dengan pelayanan dan customer loyal.
 
-3.Anlisa Customer Menggunakan Bar dan box plot untuk melihat pola hubungan tiap variabel dengan variabel Tenor.
+3.Analisa Customer Menggunakan Bar dan box plot untuk melihat pola hubungan tiap variabel dengan variabel Tenor.
 
 ![image](https://user-images.githubusercontent.com/88529383/142851500-d3cdc238-bd4d-494c-88f3-e4063810d675.png)
 ![image](https://user-images.githubusercontent.com/88529383/142851557-92aa67f5-94d0-43da-afae-99d48b4e8037.png)
 berdasarkan grafik bar plot beberapa informasi yang didapatkan adalah :
-1. kecendrungan peningkatan saldo terhadap waktu pemakaian jasa, hubungannya semakin lama customer maka saldo yang dimiliki samkin besar. <br>
+1. kecenderungan peningkatan saldo terhadap waktu pemakaian jasa, hubungannya semakin lama customer maka saldo yang dimiliki samkin besar. <br>
 2. customer yang sudah 12 tahun menggunakan jasa bank, memiliki pembelian yang tinggi, dari grafik juga ditunjukkan secara umum semakin lama tenor customer, maka perilaku pembelian semakin meningkat. <br>
 3. terdapat kasus unik untuk hubungan frekuensi pembelian dengan lama tenor, dimana pada customer dengan tenor 6 tahun lebih sering melakukan pembelian, ketika tenor meningkat kecendrungan frekuensi pembelian menurun tetapi meningkat kembali secara signifikant pada saat customer memiliki tenor 12 tahun. <br>
 4. untuk frekuensi pembayaran dimuka, ketika mengalami penurunan ketikan tenor meningkat. <br>
 5. batas kredit meningkat ketika tenor meningkat, hal ini cukup masuk akal karena peningkatan saldo juga meningkat, sehingga kemungkinan customer akan meningkatkan jumlah limit dengan keperluan tertentu, pernyataan ini didukung dengan hubungan pembayaran dengan tenor yang meningkat seiring tenor meningkat.
 
 4.Matriks Korelasi <br>
-matriks korelasi berguna untuk melihat fitur-fitur yang memiliki korelasi satu sama lain sehingga mempermudah untuk memilih fitur-fitur penting yang akan digunakan untuk membangun model. Untuk membuat matriks korelasi dapat menggunakan heat map atau peta panas ```sns.heatmap()``` yang merupakan fungsi dari seaborn.
+Matriks korelasi berguna untuk melihat fitur-fitur yang memiliki korelasi satu sama lain sehingga mempermudah untuk memilih fitur-fitur penting yang akan digunakan untuk membangun model. Untuk membuat matriks korelasi dapat menggunakan heat map atau peta panas ```sns.heatmap()``` yang merupakan fungsi dari seaborn.
 
 ![image](https://user-images.githubusercontent.com/88529383/143533752-8d877323-d225-406c-b92f-31f7cba9d40a.png)
 Dari grafik heatmap terlihat ada banya fitur yang saling berkolerasi kuat, cukup sulit untuk membuat model dengan melakukan pemeilihan fitur secara manual, sehingga proses dalam pembuat model, pereduksian fitur akan dilakukan dengan bantuan PCA.
@@ -190,12 +194,9 @@ Credit Limit : High <br>
 
 ## KESIMPULAN
 ---
-untuk cluster 1, rekomendasikan **silver credit card** karena ini adalah kartu yang paling banyak dimiliki. Secara umum, pemegang kartu kredit baru akan menerima kartu perak dan mereka dapat meningkatkannya nanti. Kartu silver memiliki limit kredit paling rendah yaitu sekitar Rp 4 juta hingga Rp 7 juta. Pemegang kartu harus memiliki gaji bulanan minimal Rp 3 juta. Kelebihan dari kartu ini adalah limit yang tidak terlalu tinggi. <br>
+Untuk cluster 1, rekomendasikan **silver credit card** karena ini adalah kartu yang paling banyak dimiliki. Secara umum, pemegang kartu kredit baru akan menerima kartu perak dan mereka dapat meningkatkannya nanti. Kartu silver memiliki limit kredit paling rendah yaitu sekitar Rp 4 juta hingga Rp 7 juta. Pemegang kartu harus memiliki gaji bulanan minimal Rp 3 juta. Kelebihan dari kartu ini adalah limit yang tidak terlalu tinggi. <br>
 
-untuk cluster 0, rekomendasikan **gold credit card**. Pemegang kartu harus memiliki penghasilan rutin bulanan sekitar Rp 5 juta hingga Rp 10 juta. Limit kredit berkisar antara Rp 10 juta hingga Rp 40 juta, tergantung bank penerbit kartu kredit. Kelebihan dari jenis kartu ini adalah limit yang cukup besar. Jadi, ini memungkinkan Anda untuk membeli/memiliki barang-barang mahal lebih cepat. Anda bisa menggunakannya untuk mencicil barang-barang berbujet besar seperti sepeda motor atau smartphone. Namun, semakin tinggi batas kartu kredit, semakin tinggi biaya tahunan yang harus Anda bayar.<br>
+Untuk cluster 0, rekomendasikan **gold credit card**. Pemegang kartu harus memiliki penghasilan rutin bulanan sekitar Rp 5 juta hingga Rp 10 juta. Limit kredit berkisar antara Rp 10 juta hingga Rp 40 juta, tergantung bank penerbit kartu kredit. Kelebihan dari jenis kartu ini adalah limit yang cukup besar. Jadi, ini memungkinkan Anda untuk membeli/memiliki barang-barang mahal lebih cepat. Anda bisa menggunakannya untuk mencicil barang-barang berbujet besar seperti sepeda motor atau smartphone. Namun, semakin tinggi batas kartu kredit, semakin tinggi biaya tahunan yang harus Anda bayar.<br>
 
-untuk cluster 2, kartu **platinum credit card** dengan level tertinggi. Kartu kredit Platinum hanya dimiliki oleh segelintir orang karena tidak mudah untuk mendapatkan kartu karena prosedur yang ketat. Kartu kredit platinum memiliki limit tinggi mulai dari Rp 40 juta hingga Rp 1 miliar. Pemegang kartu harus memiliki penghasilan minimal Rp 180 juta per tahun dan memiliki riwayat kredit yang baik.<br>
-
-
-
-rujukan referensi : https://medium.com/analytics-vidhya/credit-card-customers-segmentation-bc3c5c87ddc
+Untuk cluster 2, kartu **platinum credit card** dengan level tertinggi. Kartu kredit Platinum hanya dimiliki oleh segelintir orang karena tidak mudah untuk mendapatkan kartu karena prosedur yang ketat. Kartu kredit platinum memiliki limit tinggi mulai dari Rp 40 juta hingga Rp 1 miliar. Pemegang kartu harus memiliki penghasilan minimal Rp 180 juta per tahun dan memiliki riwayat kredit yang baik.<br>
+[Referensi](https://medium.com/analytics-vidhya/credit-card-customers-segmentation-bc3c5c87ddc)
