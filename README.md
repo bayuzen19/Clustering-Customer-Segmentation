@@ -21,10 +21,9 @@ Berdasarkan dari fitur-fitur yang ada, berapa banyak kluster yang dapat dibentuk
 Membuat model yang dapat menentukan banyak kluster secara tepat dari customer sehingga treatment menjadi tepat sasaran.
 
 ### Solution
-* Segmentasi pelanggan kartu kredit menggunakan algoritma K-Means.
-<p align = "justify">K-means adalah algoritma pembelajaran unsupervised (clustering). K-means bekerja dengan mengelompokkan beberapa titik data menjadi satu (clustering) dengan cara yang tidak diawasi. Algoritma mengelompokkan pengamatan dengan nilai atribut yang serupa bersama-sama dengan mengukur jarak Euclidian antar titik. Algoritma K-means juga bekerja secara iteratif yang mencoba untuk mempartisi dataset menjadi K subkelompok (cluster) berbeda yang tidak tumpang tindih yang telah ditentukan sebelumnya di mana setiap titik data hanya dimiliki oleh satu kelompok.</p>
-![image](https://user-images.githubusercontent.com/88529383/143980712-32824449-48e2-41ea-a4c0-8a27c5f7dd4c.png)
+<p align = "justify">Segmentasi pelanggan kartu kredit menggunakan algoritma K-Means. K-means adalah algoritma pembelajaran unsupervised (clustering). K-means bekerja dengan mengelompokkan beberapa titik data menjadi satu (clustering) dengan cara yang tidak diawasi. Algoritma mengelompokkan pengamatan dengan nilai atribut yang serupa bersama-sama dengan mengukur jarak Euclidian antar titik. Algoritma K-means juga bekerja secara iteratif yang mencoba untuk mempartisi dataset menjadi K subkelompok (cluster) berbeda yang tidak tumpang tindih yang telah ditentukan sebelumnya di mana setiap titik data hanya dimiliki oleh satu kelompok.</p>
 
+![image](https://user-images.githubusercontent.com/88529383/143980712-32824449-48e2-41ea-a4c0-8a27c5f7dd4c.png)
 **Tahapan K-Means Clustering**: <br>
 1.Memilih jumlah cluster awal (K) yang ingin dibuat. <br>
 2.Memilih titik secara random sebanyak K buah, di mana titik ini akan menjadi pusat (centroid) dari masing-masing kelompok (clusters).<br>
@@ -56,7 +55,7 @@ Masalah yang dijelaskan dalam kumpulan data ini mengharuskan dilakukan ekstrak s
 * **PRC_FULL_PAYMENT** : Percent of full payment paid by user. <br>
 * **TENURE** : Tenure of credit card service for user. <br>
 
-**Data Overview**
+**Data Overview**<br>
 Melihat 5 baris pertama.
 
 ![image](https://user-images.githubusercontent.com/88529383/143534632-6cc6e749-db7c-4bd6-a2e1-3defa3dd8e61.png)
